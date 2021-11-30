@@ -13,6 +13,9 @@ import "./App.css"
 import InfoBox from "./InfoBox";
 import Map from "./Map";
 import "leaflet/dist/leaflet.css"
+import infected from "./Assets/infected.webp"
+import recovered from "./Assets/restored.webp"
+import death from "./Assets/death.webp"
 
 function App(){
   const [countries, setCountries] = useState([])
@@ -75,7 +78,7 @@ function App(){
               variant="outlined"
               onChange={countryChange}
               value={country}>
-                <MenuItem value="worldwide">WorldWide</MenuItem>
+                <MenuItem value="worldwide"><b>WorldWide</b></MenuItem>
                { countries.map((country) => (
                   <MenuItem value={country.value}>{country.name}</MenuItem>
                 ))}
@@ -85,9 +88,9 @@ function App(){
           </div>
           
           <div className="app__info">
-            <InfoBox title="Cases" cases={countryInfo.todayCases} total={countryInfo.cases}/>
-            <InfoBox title="Recovered" cases={countryInfo.todayRecovered} total={countryInfo.recovered}/>
-            <InfoBox title="Deaths" cases={countryInfo.todayDeaths} total={countryInfo.deaths}/>
+            <InfoBox isRed title="Cases" cases={countryInfo.todayCases} total={countryInfo.cases} image={infected}/>
+            <InfoBox title="Recovered" cases={countryInfo.todayRecovered} total={countryInfo.recovered} image={recovered}/>
+            <InfoBox isRed title="Deaths" cases={countryInfo.todayDeaths} total={countryInfo.deaths} image={death}/>
           </div>
 
           <Map

@@ -1,5 +1,8 @@
 .infoBox{
+  display: flex;
     flex:0.3;
+    justify-content: center;
+    align-items: center;
 }
 
 .infoBox__cases {
@@ -8,6 +11,10 @@
   font-size: 1.75rem;
   margin-bottom: 0.5rem;
 }
+.infoBox__cases--green {
+  color: lightgreen !important;
+}
+
 
 .infoBox__total {
   color: #6c757d;
